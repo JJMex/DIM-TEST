@@ -76,8 +76,8 @@ header {
 
 /* ================= BANNER PRINCIPAL (HERO) ================= */
 .hero {
-    /* Aquí cargarás la imagen de fondo principal */
-    background: linear-gradient(rgba(0, 91, 159, 0.7), rgba(0, 0, 0, 0.7)), url('../img/banner-inicio.jpg') center/cover no-repeat;
+    /* Ruta actualizada a assets/ */
+    background: linear-gradient(rgba(0, 91, 159, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/banner-inicio.jpg') center/cover no-repeat;
     color: #ffffff;
     text-align: center;
     padding: 100px 20px;
@@ -156,6 +156,13 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-bottom: 30px;
+}
+
+/* Estilo para el logo del footer */
+.footer-logo img {
+    max-width: 180px; /* Ajusta el tamaño si es necesario */
+    height: auto;
+    margin-bottom: 15px;
 }
 
 .footer-col h4 {
