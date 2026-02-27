@@ -1,17 +1,21 @@
 /* =========================================
    Archivo: css/styles.css
-   Proyecto: DIM-TEST (Top Global - Nodos Interactivos)
+   Proyecto: DIM-TEST (Identidad: Oscuro & Rojo)
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap');
 
 :root {
-    --primary-color: #005b9f; 
-    --primary-hover: #00427a;
-    --accent-color: #4da6ff;
-    --secondary-color: #1a1a1a;
-    --bg-light: #f8fafc; /* Fondo base muy claro y limpio */
-    --text-color: #4a4a4a;
+    /* NUEVA PALETA DE COLORES */
+    --primary-color: #d32f2f;     /* Rojo Vibrante y Profesional */
+    --primary-hover: #b71c1c;     /* Rojo más oscuro para hover */
+    --accent-color: #ff5252;      /* Rojo claro/brillante para acentos */
+    --bg-dark-absolute: #050505; /* Negro profundo para el fondo base */
+    --bg-card: #121212;          /* Gris Mate Oscuro para tarjetas */
+    --text-main: #e0e0e0;        /* Gris Claro para texto cuerpo */
+    --text-heading: #ffffff;     /* Blanco puro para títulos */
+    --border-subtle: rgba(211, 47, 47, 0.15); /* Borde Rojo casi invisible */
+    
     --font-text: 'Inter', sans-serif;
     --font-heading: 'Montserrat', sans-serif;
 }
@@ -24,12 +28,12 @@
 
 html {
     scroll-behavior: smooth;
-    background-color: var(--bg-light);
+    background-color: var(--bg-dark-absolute); /* Fondo base */
 }
 
 body {
     font-family: var(--font-text);
-    color: var(--text-color);
+    color: var(--text-main); /* Texto claro por defecto */
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     position: relative;
@@ -37,17 +41,17 @@ body {
     background-color: transparent; /* Permite ver las partículas */
 }
 
-/* ================= FONDO: RED DE NODOS Y GRID ================= */
+/* ================= FONDO: RED DE NODOS (Rojos) Y GRID (Faint Red) ================= */
 #tsparticles {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2; /* Al fondo absoluto */
+    z-index: -2;
 }
 
-/* Grid de ingeniería superpuesto a las partículas */
+/* Grid de ingeniería adaptado al nuevo color faint red */
 .bg-grid {
     position: fixed;
     top: 0;
@@ -55,11 +59,11 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(rgba(0, 91, 159, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 91, 159, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(211, 47, 47, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(211, 47, 47, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     z-index: -1;
-    pointer-events: none; /* No bloquea el ratón para las partículas */
+    pointer-events: none;
 }
 
 .container {
@@ -68,13 +72,14 @@ body {
     margin: 0 auto;
 }
 
-/* ================= HEADER Y GLASSMORPHISM ================= */
+/* ================= HEADER Y GLASSMORPHISM (Dark Red Tone) ================= */
 header {
-    background-color: rgba(26, 26, 26, 0.85); 
+    /* Fondo negro con desenfoque (blur) */
+    background-color: rgba(5, 5, 5, 0.85); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(211, 47, 47, 0.2); /* Borde Rojo sutil */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -106,7 +111,7 @@ header {
 
 .nav-links li a {
     text-decoration: none;
-    color: #ffffff; 
+    color: var(--text-main); 
     font-weight: 500;
     font-size: 0.85rem;
     letter-spacing: 1px;
@@ -117,17 +122,18 @@ header {
 
 .nav-links li a:hover,
 .nav-links li a.active {
-    color: var(--accent-color); 
+    color: var(--accent-color); /* Rojo brillante al hover */
     transform: translateY(-2px);
 }
 
-/* ================= BANNER PRINCIPAL (HERO) ================= */
+/* ================= BANNER PRINCIPAL (HERO) - Black/Red Gradient ================= */
 .hero {
-    background: linear-gradient(rgba(0, 91, 159, 0.85), rgba(26, 26, 26, 0.95)), url('../assets/banner-inicio.jpg') center/cover no-repeat;
-    color: #ffffff;
+    /* Gradiente que va de rojo oscuro a negro absoluto */
+    background: linear-gradient(rgba(183, 28, 28, 0.9), rgba(5, 5, 5, 0.98)), url('../assets/banner-inicio.jpg') center/cover no-repeat;
+    color: var(--text-heading);
     text-align: center;
     padding: 140px 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
 .hero h1 {
@@ -137,6 +143,7 @@ header {
     letter-spacing: -1px;
     margin-bottom: 25px;
     line-height: 1.2;
+    color: var(--text-heading);
 }
 
 .hero p {
@@ -144,15 +151,23 @@ header {
     max-width: 800px;
     margin: 0 auto;
     font-weight: 400;
-    opacity: 0.9;
+    opacity: 0.95;
+    color: var(--text-main);
 }
 
-/* ================= SECCIÓN DE SOLUCIONES ================= */
+/* ================= SECCIÓN DE SOLUCIONES - Dark Cards ================= */
 .soluciones-home {
     padding: 100px 0;
     background-color: transparent; 
     text-align: center;
     position: relative;
+}
+
+.soluciones-home h2 {
+    color: var(--text-heading);
+    font-family: var(--font-heading);
+    margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .soluciones-grid {
@@ -163,25 +178,27 @@ header {
 }
 
 .solucion-card {
-    /* Glassmorphism ligero en las tarjetas para que se mezcle con las partículas */
-    background: rgba(255, 255, 255, 0.9);
+    /* Glassmorphism Mate y Oscuro en las tarjetas */
+    background: rgba(18, 18, 18, 0.92);
     backdrop-filter: blur(10px);
     padding: 40px 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
     will-change: transform, box-shadow;
-    border: 1px solid rgba(0,0,0,0.04);
+    /* Borde Rojo muy sutil para definir la tarjeta en el fondo negro */
+    border: 1px solid var(--border-subtle);
 }
 
 .solucion-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 91, 159, 0.15);
+    box-shadow: 0 20px 50px rgba(211, 47, 47, 0.2); /* Glow Rojo al hover */
+    border-color: rgba(211, 47, 47, 0.5); /* Borde Rojo se ilumina */
 }
 
 .solucion-card h3 {
     font-family: var(--font-heading);
-    color: var(--secondary-color);
+    color: var(--text-heading);
     margin-bottom: 20px;
     font-size: 1.2rem;
 }
@@ -198,45 +215,50 @@ header {
     font-size: 0.9rem;
     letter-spacing: 0.5px;
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .btn-conocer:hover {
     background-color: var(--primary-hover);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 91, 159, 0.3);
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.4);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ================= PÁGINAS INTERNAS ================= */
+/* ================= PÁGINAS INTERNAS (Dark Adapt) ================= */
 .page-header {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--bg-card); /* Gris Mate oscuro */
+    color: var(--text-heading);
     text-align: center;
     padding: 80px 20px;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .page-header h1 {
     font-family: var(--font-heading);
     font-size: 2.5rem;
+    color: var(--text-heading);
 }
 
 .content-section {
     padding: 80px 0;
     min-height: 50vh;
     background-color: transparent;
+    color: var(--text-main);
 }
 
 .content-section h2 {
     font-family: var(--font-heading);
-    color: var(--primary-color);
+    color: var(--text-heading); /* Títulos claros */
     margin-top: 30px;
     margin-bottom: 15px;
-    border-bottom: 2px solid rgba(0,0,0,0.05);
+    border-bottom: 2px solid var(--border-subtle); /* Separador rojo faint */
     padding-bottom: 10px;
 }
 
 .content-section h3 {
     font-family: var(--font-heading);
-    color: var(--secondary-color);
+    color: var(--text-heading);
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -245,14 +267,16 @@ header {
     margin-bottom: 20px;
     text-align: justify;
     font-size: 1.05rem;
+    color: var(--text-main);
 }
 
 .content-section ul {
     margin-bottom: 20px;
     margin-left: 30px;
+    color: var(--text-main);
 }
 
-/* ================= FORMULARIO Y GRILLAS DE LOGOS ================= */
+/* ================= FORMULARIO Y GRILLAS DE LOGOS (Dark Adapt) ================= */
 .logos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -265,24 +289,26 @@ header {
 .logos-grid img {
     max-width: 100%;
     height: auto;
-    filter: grayscale(100%);
+    filter: grayscale(100%) invert(100%); /* Invierte colores para que sean claros en fondo oscuro */
     transition: filter 0.3s ease, transform 0.3s ease;
+    opacity: 0.7;
 }
 
 .logos-grid img:hover {
-    filter: grayscale(0%);
+    filter: grayscale(0%) invert(0%); /* Vuelven a su color original al hover */
     transform: scale(1.05);
+    opacity: 1;
 }
 
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(18, 18, 18, 0.95); /* Tarjeta oscura */
     backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-subtle);
 }
 
 .form-group {
@@ -295,26 +321,28 @@ header {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.85rem;
-    color: var(--primary-color);
+    color: var(--text-heading); /* Label claro */
 }
 
 .form-group input, 
 .form-group textarea {
     width: 100%;
     padding: 15px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde claro tenue */
     border-radius: 8px;
     font-family: var(--font-text);
     font-size: 1rem;
-    background-color: #f8f9fa;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    background-color: rgba(5, 5, 5, 0.5); /* Fondo input negro traslúcido */
+    color: var(--text-main); /* Texto input claro */
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus, 
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
-    background-color: #ffffff;
+    border-color: var(--primary-color); /* Borde rojo al focus */
+    background-color: var(--bg-dark-absolute);
+    box-shadow: 0 0 10px rgba(211, 47, 47, 0.2);
 }
 
 .form-group textarea {
@@ -324,7 +352,7 @@ header {
 
 .btn-submit {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     border: none;
     padding: 15px 25px;
     font-family: var(--font-heading);
@@ -335,22 +363,25 @@ header {
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
     text-transform: uppercase;
+    border: 1px solid transparent;
 }
 
 .btn-submit:hover {
     background-color: var(--primary-hover);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 91, 159, 0.3);
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.4);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ================= FOOTER ================= */
+/* ================= FOOTER - Deep Black Adapt ================= */
 footer {
-    background-color: var(--secondary-color);
-    color: #e0e0e0;
+    background-color: var(--bg-dark-absolute); /* Negro profundo absoluta */
+    color: var(--text-main);
     padding: 60px 0 20px 0;
     font-size: 0.95rem;
-    position: relative; /* Asegura que se dibuje por encima de las partículas */
+    position: relative; 
     z-index: 10;
+    border-top: 1px solid var(--border-subtle); /* Separador rojo faint arriba */
 }
 
 .footer-grid {
@@ -368,28 +399,33 @@ footer {
 
 .footer-col h4 {
     font-family: var(--font-heading);
-    color: #ffffff;
+    color: var(--text-heading);
     margin-bottom: 20px;
     font-size: 1.1rem;
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color); /* Separador rojo intenso abajo */
     padding-bottom: 8px;
     display: inline-block;
 }
 
+.footer-col p {
+    color: var(--text-main);
+}
+
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.05); /* Separador claro tenue */
     padding-top: 20px;
     margin-top: 20px;
     font-size: 0.85rem;
+    color: rgba(224, 224, 224, 0.6);
 }
 
 .footer-bottom a {
-    color: #aaaaaa;
+    color: rgba(224, 224, 224, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-bottom a:hover {
-    color: var(--accent-color);
+    color: var(--accent-color); /* Rojo brillante al hover */
 }
