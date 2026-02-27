@@ -1,20 +1,20 @@
 /* =========================================
    Archivo: css/styles.css
-   Proyecto: DIM-TEST (Identidad: Oscuro & Rojo)
+   Proyecto: DIM-TEST (Identidad: Oscuro, Rojo y Efecto Cristal)
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap');
 
 :root {
-    /* NUEVA PALETA DE COLORES */
-    --primary-color: #d32f2f;     /* Rojo Vibrante y Profesional */
-    --primary-hover: #b71c1c;     /* Rojo más oscuro para hover */
-    --accent-color: #ff5252;      /* Rojo claro/brillante para acentos */
-    --bg-dark-absolute: #050505; /* Negro profundo para el fondo base */
-    --bg-card: #121212;          /* Gris Mate Oscuro para tarjetas */
+    /* PALETA DE COLORES ACTUALIZADA */
+    --primary-color: #d32f2f;     /* Rojo Corporativo */
+    --primary-hover: #b71c1c;     /* Rojo Oscuro para hover */
+    --accent-color: #ff5252;      /* Rojo Brillante para acentos */
+    --bg-dark-absolute: #050505; /* Negro Profundo base */
+    --bg-card: #121212;          /* Gris Mate Oscuro base para tarjetas */
     --text-main: #e0e0e0;        /* Gris Claro para texto cuerpo */
     --text-heading: #ffffff;     /* Blanco puro para títulos */
-    --border-subtle: rgba(211, 47, 47, 0.15); /* Borde Rojo casi invisible */
+    --border-subtle: rgba(211, 47, 47, 0.2); /* Borde Rojo sutil */
     
     --font-text: 'Inter', sans-serif;
     --font-heading: 'Montserrat', sans-serif;
@@ -28,20 +28,20 @@
 
 html {
     scroll-behavior: smooth;
-    background-color: var(--bg-dark-absolute); /* Fondo base */
+    background-color: var(--bg-dark-absolute);
 }
 
 body {
     font-family: var(--font-text);
-    color: var(--text-main); /* Texto claro por defecto */
+    color: var(--text-main);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     position: relative;
     overflow-x: hidden;
-    background-color: transparent; /* Permite ver las partículas */
+    background-color: transparent; /* Permite ver las partículas de fondo */
 }
 
-/* ================= FONDO: RED DE NODOS (Rojos) Y GRID (Faint Red) ================= */
+/* ================= FONDO: RED DE NODOS Y GRID ================= */
 #tsparticles {
     position: fixed;
     top: 0;
@@ -51,7 +51,7 @@ body {
     z-index: -2;
 }
 
-/* Grid de ingeniería adaptado al nuevo color faint red */
+/* Grid de ingeniería sutil en rojo faint */
 .bg-grid {
     position: fixed;
     top: 0;
@@ -74,11 +74,10 @@ body {
 
 /* ================= HEADER Y GLASSMORPHISM (Dark Red Tone) ================= */
 header {
-    /* Fondo negro con desenfoque (blur) */
     background-color: rgba(5, 5, 5, 0.85); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(211, 47, 47, 0.2); /* Borde Rojo sutil */
+    border-bottom: 1px solid var(--border-subtle);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
@@ -122,18 +121,22 @@ header {
 
 .nav-links li a:hover,
 .nav-links li a.active {
-    color: var(--accent-color); /* Rojo brillante al hover */
+    color: var(--accent-color);
     transform: translateY(-2px);
 }
 
-/* ================= BANNER PRINCIPAL (HERO) - Black/Red Gradient ================= */
+/* ================= BANNER PRINCIPAL (HERO) - Efecto Cristal y Degradado ================= */
 .hero {
-    /* Gradiente que va de rojo oscuro a negro absoluto */
-    background: linear-gradient(rgba(183, 28, 28, 0.9), rgba(5, 5, 5, 0.98)), url('../assets/banner-inicio.jpg') center/cover no-repeat;
+    /* Gradiente que va de rojo oscuro a negro absoluto, con opacidad para ver fondo */
+    background: linear-gradient(rgba(183, 28, 28, 0.8), rgba(5, 5, 5, 0.9)), url('../assets/banner-inicio.jpg') center/cover no-repeat;
+    /* Efecto cristal para ver la animación detrás */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: var(--text-heading);
     text-align: center;
     padding: 140px 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .hero h1 {
@@ -143,7 +146,12 @@ header {
     letter-spacing: -1px;
     margin-bottom: 25px;
     line-height: 1.2;
-    color: var(--text-heading);
+    /* EFECTO DEGRADADO EN EL TEXTO */
+    background: linear-gradient(135deg, var(--text-heading) 30%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
 .hero p {
@@ -155,7 +163,7 @@ header {
     color: var(--text-main);
 }
 
-/* ================= SECCIÓN DE SOLUCIONES - Dark Cards ================= */
+/* ================= SECCIÓN DE SOLUCIONES - Tarjetas de Cristal Oscuro ================= */
 .soluciones-home {
     padding: 100px 0;
     background-color: transparent; 
@@ -178,22 +186,22 @@ header {
 }
 
 .solucion-card {
-    /* Glassmorphism Mate y Oscuro en las tarjetas */
-    background: rgba(18, 18, 18, 0.92);
-    backdrop-filter: blur(10px);
+    /* Efecto Cristal Mate y Oscuro más pronunciado */
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     padding: 40px 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
     will-change: transform, box-shadow;
-    /* Borde Rojo muy sutil para definir la tarjeta en el fondo negro */
     border: 1px solid var(--border-subtle);
 }
 
 .solucion-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(211, 47, 47, 0.2); /* Glow Rojo al hover */
-    border-color: rgba(211, 47, 47, 0.5); /* Borde Rojo se ilumina */
+    box-shadow: 0 20px 50px rgba(211, 47, 47, 0.25);
+    border-color: rgba(211, 47, 47, 0.6);
 }
 
 .solucion-card h3 {
@@ -221,13 +229,13 @@ header {
 .btn-conocer:hover {
     background-color: var(--primary-hover);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.4);
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.5);
     border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ================= PÁGINAS INTERNAS (Dark Adapt) ================= */
 .page-header {
-    background-color: var(--bg-card); /* Gris Mate oscuro */
+    background-color: var(--bg-card); 
     color: var(--text-heading);
     text-align: center;
     padding: 80px 20px;
@@ -249,10 +257,10 @@ header {
 
 .content-section h2 {
     font-family: var(--font-heading);
-    color: var(--text-heading); /* Títulos claros */
+    color: var(--text-heading);
     margin-top: 30px;
     margin-bottom: 15px;
-    border-bottom: 2px solid var(--border-subtle); /* Separador rojo faint */
+    border-bottom: 2px solid var(--border-subtle);
     padding-bottom: 10px;
 }
 
@@ -289,13 +297,13 @@ header {
 .logos-grid img {
     max-width: 100%;
     height: auto;
-    filter: grayscale(100%) invert(100%); /* Invierte colores para que sean claros en fondo oscuro */
+    filter: grayscale(100%) invert(100%); /* Invierte para logos claros */
     transition: filter 0.3s ease, transform 0.3s ease;
     opacity: 0.7;
 }
 
 .logos-grid img:hover {
-    filter: grayscale(0%) invert(0%); /* Vuelven a su color original al hover */
+    filter: grayscale(0%) invert(0%);
     transform: scale(1.05);
     opacity: 1;
 }
@@ -303,11 +311,12 @@ header {
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    background: rgba(18, 18, 18, 0.95); /* Tarjeta oscura */
+    background: rgba(18, 18, 18, 0.9); /* Cristal oscuro */
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
     border: 1px solid var(--border-subtle);
 }
 
@@ -321,28 +330,28 @@ header {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.85rem;
-    color: var(--text-heading); /* Label claro */
+    color: var(--text-heading);
 }
 
 .form-group input, 
 .form-group textarea {
     width: 100%;
     padding: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde claro tenue */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     font-family: var(--font-text);
     font-size: 1rem;
-    background-color: rgba(5, 5, 5, 0.5); /* Fondo input negro traslúcido */
-    color: var(--text-main); /* Texto input claro */
+    background-color: rgba(5, 5, 5, 0.6);
+    color: var(--text-main);
     transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus, 
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color); /* Borde rojo al focus */
+    border-color: var(--primary-color);
     background-color: var(--bg-dark-absolute);
-    box-shadow: 0 0 10px rgba(211, 47, 47, 0.2);
+    box-shadow: 0 0 10px rgba(211, 47, 47, 0.3);
 }
 
 .form-group textarea {
@@ -369,19 +378,19 @@ header {
 .btn-submit:hover {
     background-color: var(--primary-hover);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.4);
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.5);
     border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ================= FOOTER - Deep Black Adapt ================= */
 footer {
-    background-color: var(--bg-dark-absolute); /* Negro profundo absoluta */
+    background-color: var(--bg-dark-absolute); 
     color: var(--text-main);
     padding: 60px 0 20px 0;
     font-size: 0.95rem;
     position: relative; 
     z-index: 10;
-    border-top: 1px solid var(--border-subtle); /* Separador rojo faint arriba */
+    border-top: 1px solid var(--border-subtle);
 }
 
 .footer-grid {
@@ -402,7 +411,7 @@ footer {
     color: var(--text-heading);
     margin-bottom: 20px;
     font-size: 1.1rem;
-    border-bottom: 2px solid var(--primary-color); /* Separador rojo intenso abajo */
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 8px;
     display: inline-block;
 }
@@ -413,7 +422,7 @@ footer {
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05); /* Separador claro tenue */
+    border-top: 1px solid rgba(255,255,255,0.05);
     padding-top: 20px;
     margin-top: 20px;
     font-size: 0.85rem;
@@ -427,5 +436,5 @@ footer {
 }
 
 .footer-bottom a:hover {
-    color: var(--accent-color); /* Rojo brillante al hover */
+    color: var(--accent-color);
 }
