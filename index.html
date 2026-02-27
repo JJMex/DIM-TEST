@@ -70,7 +70,7 @@
 
         <section class="soluciones-home">
             <div class="container">
-                <h2 data-aos="fade-up" style="font-family: var(--font-heading); color: var(--secondary-color); margin-bottom: 20px; font-size: 2rem;">Nuestras Soluciones</h2>
+                <h2 data-aos="fade-up">Nuestras Soluciones</h2>
                 
                 <div class="soluciones-grid">
                     <div class="solucion-card" data-aos="fade-up" data-aos-delay="100">
@@ -130,12 +130,12 @@
         // Iniciar animaciones de Scroll
         AOS.init({ once: true, offset: 50 });
 
-        // Iniciar Red de Nodos de Fondo
+        // Iniciar Red de Nodos de Fondo (Rojos Adapt)
         tsParticles.load("tsparticles", {
             fpsLimit: 60,
             interactivity: {
                 events: {
-                    onHover: { enable: true, mode: "grab" }, // Se conecta al cursor
+                    onHover: { enable: true, mode: "grab" },
                     resize: true
                 },
                 modes: {
@@ -143,9 +143,9 @@
                 }
             },
             particles: {
-                color: { value: "#005b9f" }, // Nodos Azules
+                color: { value: "#d32f2f" }, // NUEVO: Nodos Rojos Corporativos
                 links: {
-                    color: "#4da6ff", // Líneas Cyan
+                    color: "#ff5252", // NUEVO: Líneas Rojo Claro/Cyan Red
                     distance: 150,
                     enable: true,
                     opacity: 0.3,
@@ -153,15 +153,15 @@
                 },
                 move: {
                     enable: true,
-                    speed: 1.2, // Fluidez lenta y profesional
+                    speed: 1.2,
                     direction: "none",
                     random: true,
                     straight: false,
-                    outModes: { default: "bounce" } // Rebotan sutilmente en los bordes
+                    outModes: { default: "bounce" }
                 },
                 number: {
                     density: { enable: true, area: 800 },
-                    value: 60 // Cantidad de nodos
+                    value: 60
                 },
                 opacity: { value: 0.5 },
                 shape: { type: "circle" },
