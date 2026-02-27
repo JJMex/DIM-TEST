@@ -62,7 +62,7 @@ header {
 
 .nav-links li a {
     text-decoration: none;
-    color: #ffffff; /* Texto en blanco */
+    color: #ffffff; /* Texto en blanco para fondo oscuro */
     font-weight: 600;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -71,13 +71,11 @@ header {
 
 .nav-links li a:hover,
 .nav-links li a.active {
-    /* Un azul más claro para que brille/resalte sobre el fondo negro */
-    color: #4da6ff; 
+    color: #4da6ff; /* Un azul más claro para que brille/resalte sobre el fondo negro */
 }
 
 /* ================= BANNER PRINCIPAL (HERO) ================= */
 .hero {
-    /* Ruta actualizada a assets/ */
     background: linear-gradient(rgba(0, 91, 159, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/banner-inicio.jpg') center/cover no-repeat;
     color: #ffffff;
     text-align: center;
@@ -144,53 +142,6 @@ header {
     background-color: #00427a;
 }
 
-/* ================= FOOTER ================= */
-footer {
-    background-color: var(--secondary-color);
-    color: #e0e0e0;
-    padding: 40px 0 20px 0;
-    font-size: 0.9rem;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-/* Estilo para el logo del footer */
-.footer-logo img {
-    max-width: 180px; /* Ajusta el tamaño si es necesario */
-    height: auto;
-    margin-bottom: 15px;
-}
-
-.footer-col h4 {
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 5px;
-    display: inline-block;
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #555;
-    padding-top: 20px;
-    margin-top: 20px;
-}
-
-.footer-bottom a {
-    color: #aaaaaa;
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    color: #ffffff;
-}
-
 /* ================= PÁGINAS INTERNAS ================= */
 .page-header {
     background-color: var(--primary-color);
@@ -246,12 +197,12 @@ footer {
 .logos-grid img {
     max-width: 100%;
     height: auto;
-    filter: grayscale(100%); /* Efecto blanco y negro elegante */
+    filter: grayscale(100%);
     transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .logos-grid img:hover {
-    filter: grayscale(0%); /* A color al pasar el mouse */
+    filter: grayscale(0%);
     transform: scale(1.05);
 }
 
@@ -307,4 +258,50 @@ footer {
 
 .btn-submit:hover {
     background-color: #00427a;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background-color: var(--secondary-color);
+    color: #e0e0e0;
+    padding: 40px 0 20px 0;
+    font-size: 0.9rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-logo img {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #555;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.footer-bottom a {
+    color: #aaaaaa;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #ffffff;
 }
