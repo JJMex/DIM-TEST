@@ -125,44 +125,175 @@ header {
     transform: translateY(-2px);
 }
 
-/* ================= BANNER PRINCIPAL (HERO) - Efecto Cristal y Degradado ================= */
-.hero {
-    /* Gradiente que va de rojo oscuro a negro absoluto, con opacidad para ver fondo */
-    background: linear-gradient(rgba(183, 28, 28, 0.8), rgba(5, 5, 5, 0.9)), url('../assets/banner-inicio.jpg') center/cover no-repeat;
-    /* Efecto cristal para ver la animación detrás */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: var(--text-heading);
-    text-align: center;
-    padding: 140px 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+/* ================= HEADER Y GLASSMORPHISM (Dark Red Tone) ================= */
+header {
+    background-color: rgba(5, 5, 5, 0.85); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 25px;
-    line-height: 1.2;
-    /* EFECTO DEGRADADO EN EL TEXTO */
-    background: linear-gradient(135deg, var(--text-heading) 30%, var(--primary-color) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
 }
 
-.hero p {
-    font-size: 1.25rem;
-    max-width: 800px;
-    margin: 0 auto;
-    font-weight: 400;
-    opacity: 0.95;
-    color: var(--text-main);
+.logo {
+    z-index: 1001; /* Siempre visible por encima del overlay */
 }
 
+.logo img {
+    height: 55px; 
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* --- Menú Desktop --- */
+.nav-links-container {
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-main); 
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* --- Botón Hamburguesa Móvil (Oculto en Desktop) --- */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 1001; /* Por encima del overlay */
+    background: transparent;
+    border: none;
+    width: 30px;
+    height: 24px;
+    position: relative;
+}
+
+.hamburger-menu span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: var(--text-heading);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transition: .25s ease-in-out;
+}
+
+/* Posición de las 3 líneas */
+.hamburger-menu span:nth-child(1) { top: 0px; }
+.hamburger-menu span:nth-child(2) { top: 11px; }
+.hamburger-menu span:nth-child(3) { top: 22px; }
+
+/* Animación a X cuando está activo */
+.hamburger-menu.active span:nth-child(1) {
+    top: 11px;
+    transform: rotate(135deg);
+    background: var(--accent-color);
+}
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+.hamburger-menu.active span:nth-child(3) {
+    top: 11px;
+    transform: rotate(-135deg);
+    background: var(--accent-color);
+}
+
+/* ================= MEDIA QUERIES (Modo Celular y Tablets Pequeñas) ================= */
+@media screen and (max-width: 900px) {
+    .hamburger-menu {
+        display: block; /* Muestra el botón */
+    }
+
+    .nav-links-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 5, 5, 0.95); /* Overlay negro casi sólido */
+        backdrop-filter: blur(20px); /* Desenfoque extremo de los nodos del fondo */
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+        z-index: 1000;
+    }
+
+    /* Cuando el menú se activa mediante JS */
+    .nav-links-container.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    /* Animación en cascada de los enlaces cuando el menú está activo */
+    .nav-links-container.active .nav-links li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .nav-links-container.active .nav-links li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-links-container.active .nav-links li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-links-container.active .nav-links li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-links-container.active .nav-links li:nth-child(4) { transition-delay: 0.4s; }
+    .nav-links-container.active .nav-links li:nth-child(5) { transition-delay: 0.5s; }
+    .nav-links-container.active .nav-links li:nth-child(6) { transition-delay: 0.6s; }
+
+    .nav-links li a {
+        font-size: 1.5rem; /* Letras mucho más grandes para móvil */
+        font-family: var(--font-heading);
+    }
+}
 /* ================= SECCIÓN DE SOLUCIONES - Tarjetas de Cristal Oscuro ================= */
 .soluciones-home {
     padding: 100px 0;
