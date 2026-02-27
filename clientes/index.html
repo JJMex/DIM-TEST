@@ -1,75 +1,79 @@
-/* ================= FORMULARIO Y GRILLAS DE LOGOS ================= */
-.logos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 40px;
-    align-items: center;
-    justify-items: center;
-    margin-top: 40px;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Design and Intelligent Materials</title>
+    
+    <link rel="icon" type="image/png" href="../assets/LogoDIM.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DIM">
+    <link rel="apple-touch-icon" href="../assets/LogoDIM.png">
+    <meta name="mobile-web-app-capable" content="yes">
 
-.logos-grid img {
-    max-width: 100%;
-    height: auto;
-    filter: grayscale(100%); /* Efecto blanco y negro elegante */
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
 
-.logos-grid img:hover {
-    filter: grayscale(0%); /* A color al pasar el mouse */
-    transform: scale(1.05);
-}
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="../"><img src="../assets/LogoDIM.png" alt="Logo DIM"></a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../">Inicio</a></li>
+                    <li><a href="../nosotros/">Nosotros</a></li>
+                    <li><a href="../servicios/">Servicios</a></li>
+                    <li><a href="../clientes/" class="active">Clientes</a></li>
+                    <li><a href="../alianzas-estrategicas/">Alianzas Estratégicas</a></li>
+                    <li><a href="../contacto/">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border: 1px solid #eeeeee;
-}
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Nuestros Clientes</h1>
+            </div>
+        </section>
 
-.form-group {
-    margin-bottom: 20px;
-}
+        <section class="content-section">
+            <div class="container">
+                <p style="text-align: center;">A lo largo de nuestros 18 años de experiencia, hemos tenido el privilegio de colaborar con grandes organizaciones, brindando soluciones tecnológicas que impulsan su crecimiento.</p>
+                
+                <div class="logos-grid">
+                    <p><em>(Espacio reservado para los logotipos de los clientes. Sube las imágenes a tu carpeta /assets/ y descomenta las etiquetas &lt;img&gt; en el código HTML)</em></p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--primary-color);
-}
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-logo">
+                    <img src="../assets/LogoDIM_Footer.png" alt="DIM">
+                </div>
+                <div class="footer-col">
+                    <h4>Sede CDMX</h4><p>Av. Río Becerra 932 piso 2<br>Col. Nápoles, Del. Benito Juárez<br>CDMX 03810</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Sede Puebla</h4><p>Av. San Baltazar 2455-G<br>Col. La Hacienda<br>Puebla, Pue. C.P. 72570</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4><p>Tel: +52 (55) 638 80568</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2015-2019 Design and Intelligent Materials</p>
+                <p><a href="../aviso-de-privacidad/">Aviso de privacidad</a></p>
+            </div>
+        </div>
+    </footer>
 
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-family: var(--font-main);
-    font-size: 1rem;
-}
-
-.form-group textarea {
-    resize: vertical;
-    height: 120px;
-}
-
-.btn-submit {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s ease;
-    width: 100%;
-    text-transform: uppercase;
-}
-
-.btn-submit:hover {
-    background-color: #00427a;
-}
+</body>
+</html>
