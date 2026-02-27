@@ -19,7 +19,6 @@
     <link rel="apple-touch-icon" href="assets/LogoDIM.png">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <link rel="stylesheet" href="css/styles.css">
 
     <script type="application/ld+json">
@@ -34,16 +33,15 @@
         "@type": "ContactPoint",
         "telephone": "+52-55-638-80568",
         "contactType": "customer service",
-        "areaServed": "MX",
-        "availableLanguage": "Spanish"
+        "areaServed": "MX"
       }
     }
     </script>
 </head>
 <body>
 
-    <div class="ambient-glow glow-1"></div>
-    <div class="ambient-glow glow-2"></div>
+    <div id="tsparticles"></div>
+    <div class="bg-grid"></div>
     <header>
         <div class="container navbar" data-aos="fade-down" data-aos-duration="800">
             <div class="logo">
@@ -126,10 +124,50 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+    
     <script>
-        AOS.init({
-            once: true,
-            offset: 50
+        // Iniciar animaciones de Scroll
+        AOS.init({ once: true, offset: 50 });
+
+        // Iniciar Red de Nodos de Fondo
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            interactivity: {
+                events: {
+                    onHover: { enable: true, mode: "grab" }, // Se conecta al cursor
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 180, links: { opacity: 0.8 } }
+                }
+            },
+            particles: {
+                color: { value: "#005b9f" }, // Nodos Azules
+                links: {
+                    color: "#4da6ff", // Líneas Cyan
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.3,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.2, // Fluidez lenta y profesional
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    outModes: { default: "bounce" } // Rebotan sutilmente en los bordes
+                },
+                number: {
+                    density: { enable: true, area: 800 },
+                    value: 60 // Cantidad de nodos
+                },
+                opacity: { value: 0.5 },
+                shape: { type: "circle" },
+                size: { value: { min: 1, max: 3 } }
+            },
+            detectRetina: true
         });
     </script>
 </body>
