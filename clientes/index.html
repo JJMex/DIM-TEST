@@ -1,1 +1,75 @@
+/* ================= FORMULARIO Y GRILLAS DE LOGOS ================= */
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+    margin-top: 40px;
+}
 
+.logos-grid img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%); /* Efecto blanco y negro elegante */
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logos-grid img:hover {
+    filter: grayscale(0%); /* A color al pasar el mouse */
+    transform: scale(1.05);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #eeeeee;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.btn-submit:hover {
+    background-color: #00427a;
+}
